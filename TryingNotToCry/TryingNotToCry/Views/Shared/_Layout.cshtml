@@ -1,0 +1,26 @@
+﻿<!DOCTYPE html>
+<html>
+<head background="http://static.hdw.eweb4.com/media/wallpapers_dl/1/31/308472-wavy-line.jpg">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title – приложение ASP.NET</title>
+</head>
+<body>
+    <script type="text/javascript">
+            function showImage(){
+                let elem = document.getElementById('loadingImage');
+                elem.style.visibility = "visible";
+                elem.style.width = "200px";
+                elem.style.height = "270px"
+                elem.style.position = "absolute";
+                elem.style.left = "@(new Random().Next(0,700)+"px")";
+                elem.style.top = "@(new Random().Next(0,1000)+"px")";
+                elem.style.transform = "rotate(@(new Random().Next(0,360)+"deg")";
+            }
+    </script>
+    <img  onclick="showImage()" src="@Url.Content("http://static.hdw.eweb4.com/media/wallpapers_dl/1/31/308472-wavy-line.jpg")" />
+    <img id="loadingImage" src="https://pngicon.ru/file/uploads/anime-girls.png" style="visibility:hidden" />
+    @RenderBody()
+</body>
+</html>
