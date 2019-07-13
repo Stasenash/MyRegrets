@@ -8,18 +8,30 @@
 </head>
 <body>
     <script type="text/javascript">
-            function showImage(){
-                let elem = document.getElementById('loadingImage');
-                elem.style.visibility = "visible";
-                elem.style.width = "200px";
-                elem.style.height = "270px"
-                elem.style.position = "absolute";
-                elem.style.left = "@(new Random().Next(0,700)+"px")";
-                elem.style.top = "@(new Random().Next(0,1000)+"px")";
-                elem.style.transform = "rotate(@(new Random().Next(0,360)+"deg")";
-            }
+        function getRandomNum(min, max) {
+            return Math.random() * (max - min) + min;
+        }
+
+        function showImageAndNya() {
+            let elem = document.getElementById('loadingImage');
+            elem.style.visibility = "visible";
+            elem.style.width = "200px";
+            elem.style.height = "270px"
+            elem.style.position = "absolute";
+            elem.style.left = Math.random() * 1500 + "px";
+            elem.style.top = Math.random() * 1000 + "px";
+            elem.style.transform = "rotate(" + Math.random() * 360 + "deg)";
+
+            var playlist = ['https://www.myinstants.com/media/sounds/chromeapps-16_12_2017-09.mp3', 'https://www.myinstants.com/media/sounds/nya-3-2.mp3', 'https://www.myinstants.com/media/sounds/nyam-breaking-fenrir-gbf.mp3'];
+            var myAudio = new Audio();
+            var i = getRandomNum(0, 3);
+            myAudio.src = playlist[parseInt(i)];
+            myAudio.play();
+                }
     </script>
-    <img  onclick="showImage()" src="@Url.Content("http://static.hdw.eweb4.com/media/wallpapers_dl/1/31/308472-wavy-line.jpg")" />
+
+    
+    <img onclick="showImageAndNya()" src="@Url.Content("http://static.hdw.eweb4.com/media/wallpapers_dl/1/31/308472-wavy-line.jpg")" />
     <img id="loadingImage" src="https://pngicon.ru/file/uploads/anime-girls.png" style="visibility:hidden" />
     @RenderBody()
 </body>
